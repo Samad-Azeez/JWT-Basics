@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken';
-import { CustomAPIError } from '../errors/custom-error.js';
+import { BadRequest } from '../errors/index.js';
 
 export const login = async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    throw new CustomAPIError('Please provide email and password', 400);
+    throw new BadRequest('Please provide email and password', 400);
   }
 
   //  just for demo, normally provided by the DB
